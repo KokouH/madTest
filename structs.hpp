@@ -1,4 +1,5 @@
 #if !defined(STRUCT_HPP)
+#define STRUCT_HPP
 
 struct Point
 {

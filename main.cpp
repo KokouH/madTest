@@ -7,11 +7,13 @@
 #include <utility>
 
 #include "structs.hpp"
+#include "pathGen.hpp"
 
 # define M_PI 3.14159265358979323846  // pi 
 
+std::random_device rd;
+
 Point generateRandomPointInCircle(double r) {
-    std::random_device rd;
     std::mt19937 gen(rd());
     std::uniform_real_distribution<> dis(0.0, 1.0);
 
@@ -65,6 +67,13 @@ int main() {
         file << "\n";
     }
     file.close();
+    
+    PathGenerator pathGen(points, neighbors);
+    std::vector<int> path = pathGen.getPath(99);
+    for (auto& i: path)
+    {
+        std::cout << i << std::endl;
+    }
 
     return 0;
 }
